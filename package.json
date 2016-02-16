@@ -1,10 +1,6 @@
 {
   "name": "zellsprite",
-<<<<<<< HEAD
-  "version": "1.0.5",
-=======
-  "version": "1.0.4",
->>>>>>> 55fb57edea77e5ecca409fc0ddaf24f886b0b0b8
+  "version": "1.0.6",
   "description": "make sprite metadata inspired by android r feature",
   "main": "main.js",
   "scripts": {
@@ -34,11 +30,7 @@
     "lodash": "^4.2.1",
     "spritesmith": "^3.1.0"
   },
-<<<<<<< HEAD
   "repository": "charlenezell/zellsprite",
-=======
-  "repository": "charlenezell/nodeprojects",
->>>>>>> 55fb57edea77e5ecca409fc0ddaf24f886b0b0b8
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",
     "gulp": "^3.9.0",
