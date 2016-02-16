@@ -12,4 +12,3 @@ gulp.task("build",() => {
       .pipe(gulp.dest('.'));
   });
 gulp.task('default',["watch","build"]);
-

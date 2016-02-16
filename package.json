@@ -4,7 +4,7 @@
   "description": "make sprite metadata inspired by android r feature",
   "main": "main.js",
   "scripts": {
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "test": "node_modules/.bin/gulp.cmd --gulpfile test/gulpfile.js",
     "watch": "node_modules/.bin/gulp.cmd",
     "build": "node_modules/.bin/gulp.cmd build"
