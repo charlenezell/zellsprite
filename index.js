@@ -57,7 +57,7 @@ var defaultOption = {
 function main(gulp) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
-    var config = Object.assign({}, defaultOption, options);
+    var config = _.assign({}, defaultOption, options);
     var configInfo = Object.keys(config).map(function (k) {
         return "using " + k + "=" + config[k];
     }).join("\n");

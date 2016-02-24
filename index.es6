@@ -50,7 +50,7 @@ const defaultOption={
     templateFile : path.join(modulepath, "./sptemplate.hb")
 };
 function main(gulp, options={}) {
-    var config = Object.assign({},defaultOption,options);
+    var config = ld.assign({},defaultOption,options);
     var configInfo=Object.keys(config).map((k)=>{
         return `using ${k}=${config[k]}`;
     }).join("\n");
