@@ -12,6 +12,7 @@ var pngmin = require('gulp-pngmin');
 var rename = require('gulp-rename');
 var path = require("path");
 var chalk = require('chalk');
+var buffer = require('vinyl-buffer');
 var modulepath = __dirname;
 function getRealName(w) {
     var a = w.split("/").pop();
@@ -57,7 +58,7 @@ var defaultOption = {
 function main(gulp) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
-    var config = _.assign({}, defaultOption, options);
+    var config = ld.assign({}, defaultOption, options);
     var configInfo = Object.keys(config).map(function (k) {
         return "using " + k + "=" + config[k];
     }).join("\n");
@@ -106,7 +107,7 @@ function main(gulp) {
             } else if (hasOptimised) {
                 return spMixStream.img.pipe(gulp.dest(_dest));
             } else {
-                return spMixStream.img.pipe(imagemin({
+                return spMixStream.img.pipe(buffer()).pipe(imagemin({
                     optimizationLevel: 3
                 })).pipe(gulp.dest(_dest));
             }
