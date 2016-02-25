@@ -7,6 +7,7 @@ const pngmin = require('gulp-pngmin');
 const rename = require('gulp-rename');
 const path = require("path");
 const chalk = require('chalk');
+const buffer = require('vinyl-buffer');
 const modulepath=__dirname;
 function getRealName(w) {
     var a = w.split("/").pop();
@@ -100,7 +101,7 @@ function main(gulp, options={}) {
             } else if (hasOptimised) {
                 return spMixStream.img.pipe(gulp.dest(_dest));
             } else {
-                return spMixStream.img.pipe(imagemin({
+                return spMixStream.img.pipe(buffer()).pipe(imagemin({
                     optimizationLevel: 3
                 })).pipe(gulp.dest(_dest));
             }

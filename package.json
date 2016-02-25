@@ -1,6 +1,6 @@
 {
   "name": "zellsprite",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "make sprite metadata inspired by android r feature",
   "main": "main.js",
   "scripts": {
@@ -29,7 +29,8 @@
     "gulp-rename": "^1.2.2",
     "gulp.spritesmith": "^6.2.0",
     "lodash": "^4.2.1",
-    "spritesmith": "^3.1.0"
+    "spritesmith": "^3.1.0",
+    "vinyl-buffer": "^1.0.0"
   },
   "repository": "charlenezell/zellsprite",
   "devDependencies": {

@@ -80,5 +80,5 @@ eg:可以这样使用
 
 ![output files and image][outputRef]
 
-[outputRef]:https://github.com/charlenezell/nodeprojects/raw/master/zellsprite/rst.png "output files and image"
+[outputRef]:https://raw.githubusercontent.com/charlenezell/zellsprite/master/rst.png "output files and image"
 
