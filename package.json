@@ -1,6 +1,6 @@
 {
   "name": "zellsprite",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "make sprite metadata inspired by android r feature",
   "main": "main.js",
   "scripts": {

@@ -84,6 +84,7 @@ function main(gulp) {
                 engine: "gmsmith",
                 imgPath: path.posix.join(dest, imgName2),
                 algorithm: chooseAlgorithm(a),
+                padding: 5,
                 imgOpts: {
                     quality: 100
                 },
