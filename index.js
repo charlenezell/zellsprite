@@ -27,7 +27,10 @@ function getParamList(_a) {
     arg.pop();
     return arg;
 }
-
+function isInNameOrder(pathToCal) {
+    var param = getParamList(path.basename(pathToCal));
+    return ld.includes(param, "sbn");
+}
 function chooseAlgorithm(pathToCal) {
     var param = getParamList(path.basename(pathToCal));
     var g = [{
@@ -84,6 +87,9 @@ function main(gulp) {
                 engine: "gmsmith",
                 imgPath: path.posix.join(dest, imgName2),
                 algorithm: chooseAlgorithm(a),
+                algorithmOpts: {
+                    sort: !isInNameOrder(a)
+                },
                 padding: 5,
                 imgOpts: {
                     quality: 100
