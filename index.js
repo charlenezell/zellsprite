@@ -81,6 +81,7 @@ function main(gulp) {
                 imgName2 = ld.includes(getParamList(a), "jpeg") ? imgName.replace(path.extname(imgName), ".jpeg") : imgName,
                 cssName = path.basename(a) + ".scss",
                 allImgGlob = path.join(a, "**/*.{jpg,png}");
+            imgName2 = ld.includes(getParamList(a), "jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
             var spMixStream = gulp.src(allImgGlob, { read: false }).pipe(sp({
                 imgName: imgName2,
                 cssName: cssName,
