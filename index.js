@@ -14,6 +14,7 @@ var path = require("path");
 var chalk = require('chalk');
 var buffer = require('vinyl-buffer');
 var modulepath = __dirname;
+
 function getRealName(w) {
     var a = w.split("/").pop();
     var realName = a.split("_").pop() + ".png";
@@ -27,10 +28,12 @@ function getParamList(_a) {
     arg.pop();
     return arg;
 }
+
 function isInNameOrder(pathToCal) {
     var param = getParamList(path.basename(pathToCal));
     return ld.includes(param, "sbn");
 }
+
 function chooseAlgorithm(pathToCal) {
     var param = getParamList(path.basename(pathToCal));
     var g = [{
@@ -58,6 +61,7 @@ var defaultOption = {
     taskName: "sprite",
     templateFile: path.join(modulepath, "./sptemplate.hb")
 };
+
 function main(gulp) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
@@ -69,6 +73,8 @@ function main(gulp) {
     var dest = config.dest;
     var src = config.src;
     var taskName = config.taskName;
+    var _config$destBaseOn = config.destBaseOn;
+    var destBaseOn = _config$destBaseOn === undefined ? "" : _config$destBaseOn;
     var templateFile = config.templateFile;
 
     gulp.task(taskName, function () {
@@ -82,11 +88,13 @@ function main(gulp) {
                 cssName = path.basename(a) + ".scss",
                 allImgGlob = path.join(a, "**/*.{jpg,png}");
             imgName2 = ld.includes(getParamList(a), "jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
-            var spMixStream = gulp.src(allImgGlob, { read: false }).pipe(sp({
+            var spMixStream = gulp.src(allImgGlob, {
+                read: false
+            }).pipe(sp({
                 imgName: imgName2,
                 cssName: cssName,
                 engine: "gmsmith",
-                imgPath: path.posix.join(dest, imgName2),
+                imgPath: path.posix.join(dest.replace(destBaseOn, ""), imgName2),
                 algorithm: chooseAlgorithm(a),
                 algorithmOpts: {
                     sort: !isInNameOrder(a)
@@ -109,7 +117,7 @@ function main(gulp) {
             cssBundles.push(spMixStream.css);
 
             var needP8Renderer = ld.includes(getParamList(a), "p8");
-            var hasOptimised = ld.includes(getParamList(a), "jpeg");
+            var hasOptimised = ld.includes(getParamList(a), "jpeg") || ld.includes(getParamList(a), "jpg");
             if (needP8Renderer) {
                 return spMixStream.img.pipe(pngmin()).pipe(gulp.dest(_dest));
             } else if (hasOptimised) {

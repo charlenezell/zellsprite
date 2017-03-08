@@ -5,9 +5,9 @@
 *{margin:0;padding:0;}
 .b,.c{display: inline-block;}
 .b{
-  @include popbtns_ok(20rem);
+  @include popbtns_ok(200px);
   &:hover{
-    @include popbtns_ok-h(20rem);
+    @include popbtns_ok-h(200px);
   }
 }
 .c{

@@ -8,7 +8,8 @@ const rename = require('gulp-rename');
 const path = require("path");
 const chalk = require('chalk');
 const buffer = require('vinyl-buffer');
-const modulepath=__dirname;
+const modulepath = __dirname;
+
 function getRealName(w) {
     var a = w.split("/").pop();
     var realName = a.split("_").pop() + ".png";
@@ -22,10 +23,12 @@ function getParamList(_a) {
     arg.pop();
     return arg;
 }
-function isInNameOrder(pathToCal){
+
+function isInNameOrder(pathToCal) {
     var param = getParamList(path.basename(pathToCal));
     return ld.includes(param, "sbn");
 }
+
 function chooseAlgorithm(pathToCal) {
     var param = getParamList(path.basename(pathToCal));
     var g = [{
@@ -40,22 +43,23 @@ function chooseAlgorithm(pathToCal) {
     }];
     var alg = "binary-tree",
         hit = false;
-    g.forEach(function(v) {
+    g.forEach(function (v) {
         if (ld.includes(param, v.name) && !hit) {
             hit = true, alg = v.alg;
         }
     });
     return alg;
 }
-const defaultOption={
-    src : "./style/r_imgSrc/",
-    dest : "./style/r_imgDest/",
-    taskName : "sprite",
-    templateFile : path.join(modulepath, "./sptemplate.hb")
+const defaultOption = {
+    src: "./style/r_imgSrc/",
+    dest: "./style/r_imgDest/",
+    taskName: "sprite",
+    templateFile: path.join(modulepath, "./sptemplate.hb")
 };
-function main(gulp, options={}) {
-    var config = ld.assign({},defaultOption,options);
-    var configInfo=Object.keys(config).map((k)=>{
+
+function main(gulp, options = {}) {
+    var config = ld.assign({}, defaultOption, options);
+    var configInfo = Object.keys(config).map((k) => {
         return `using ${k}=${config[k]}`;
     }).join("\n");
     console.log(chalk.bgGreen.red(configInfo));
@@ -63,33 +67,36 @@ function main(gulp, options={}) {
         dest,
         src,
         taskName,
+        destBaseOn="",
         templateFile
-    }=config;
-    gulp.task(taskName, function() {
+    } = config;
+    gulp.task(taskName, function () {
         let jobs = [];
-        let spriteGlob = path.join(src,"*");//图片目录的直接子项作为sprite图片的名字
+        let spriteGlob = path.join(src, "*"); //图片目录的直接子项作为sprite图片的名字
         let _dest = path.join(dest);
         let cssBundles = [];
-        let _map = glob.sync(spriteGlob).map((a)=>{
+        let _map = glob.sync(spriteGlob).map((a) => {
             let imgName = getRealName(a),
                 imgName2 = ld.includes(getParamList(a), "jpeg") ? imgName.replace(path.extname(imgName), ".jpeg") : imgName,
                 cssName = path.basename(a) + ".scss",
                 allImgGlob = path.join(a, "**/*.{jpg,png}");
             imgName2 = ld.includes(getParamList(a), "jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
-            var spMixStream = gulp.src(allImgGlob,{read:false}).pipe(sp({
+            var spMixStream = gulp.src(allImgGlob, {
+                read: false
+            }).pipe(sp({
                 imgName: imgName2,
                 cssName: cssName,
                 engine: "gmsmith",
-                imgPath: path.posix.join(dest, imgName2),
+                imgPath: path.posix.join(dest.replace(destBaseOn,""), imgName2),
                 algorithm: chooseAlgorithm(a),
-                 algorithmOpts:{
+                algorithmOpts: {
                     sort: !isInNameOrder(a)
                 },
                 padding: 5,
                 imgOpts: {
                     quality: 100
                 },
-                cssVarMap: function(sp) {
+                cssVarMap: function (sp) {
                     var spriteImgName = getRealName(a);
                     sp.name = spriteImgName.replace(path.extname(spriteImgName), "") + "_" + sp.name;
                 },
@@ -103,7 +110,7 @@ function main(gulp, options={}) {
             cssBundles.push(spMixStream.css);
 
             var needP8Renderer = ld.includes(getParamList(a), "p8");
-            var hasOptimised = ld.includes(getParamList(a), "jpeg");
+            var hasOptimised = ld.includes(getParamList(a), "jpeg") || ld.includes(getParamList(a), "jpg");
             if (needP8Renderer) {
                 return spMixStream.img.pipe(pngmin()).pipe(gulp.dest(_dest));
             } else if (hasOptimised) {
@@ -119,8 +126,8 @@ function main(gulp, options={}) {
         if (_map.length > 0) {
             jobs.push(imgJob);
         }
-        cssBundles.forEach(function(v) {
-            jobs.push(v.pipe(rename(function(path) {
+        cssBundles.forEach(function (v) {
+            jobs.push(v.pipe(rename(function (path) {
                 path.basename = "_" + getRealName(path.basename);
             })).pipe(gulp.dest(_dest)));
         });

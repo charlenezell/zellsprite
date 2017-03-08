@@ -1,14 +1,19 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-
-gulp.task("watch",() => {
-  gulp.watch("./**/*.es6",["build"])
-});
+const path=require("path");
+console.log(__dirname);
 gulp.task("build",() => {
-    return gulp.src('./**/*.es6')
+    return gulp.src(path.join(__dirname,'/**/*.es6'))
       .pipe(babel({
         presets: ['es2015']
       }))
-      .pipe(gulp.dest('.'));
+      .pipe(gulp.dest(__dirname));
   });
-gulp.task('default',["watch","build"]);
+
+gulp.task("watch",() => {
+  gulp.watch(path.join(__dirname,"./**/*.es6"),["build"]);
+});
+
+
+
+gulp.task('default',["watch"]);
