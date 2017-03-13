@@ -8,11 +8,11 @@ var ld = require("lodash");
 var es = require("event-stream");
 var glob = require("glob");
 var imagemin = require("gulp-imagemin");
-var pngmin = require('gulp-pngmin');
 var rename = require('gulp-rename');
 var path = require("path");
 var chalk = require('chalk');
 var buffer = require('vinyl-buffer');
+var imageminPngquant = require('imagemin-pngquant');
 var modulepath = __dirname;
 
 function getRealName(w) {
@@ -119,7 +119,9 @@ function main(gulp) {
             var needP8Renderer = ld.includes(getParamList(a), "p8");
             var hasOptimised = ld.includes(getParamList(a), "jpeg") || ld.includes(getParamList(a), "jpg");
             if (needP8Renderer) {
-                return spMixStream.img.pipe(pngmin()).pipe(gulp.dest(_dest));
+                return spMixStream.img.pipe(buffer()).pipe(imagemin({
+                    use:[imageminPngquant()]
+                })).pipe(gulp.dest(_dest));
             } else if (hasOptimised) {
                 return spMixStream.img.pipe(gulp.dest(_dest));
             } else {

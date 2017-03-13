@@ -9,52 +9,52 @@
   background-image: url(imgDest/popbtns.png);
   width: 116px;
   height: 39px;
-  background-position: -363px -0px; }
+  background-position: -363px -132px; }
   @media (max-width: 540px) {
     .b {
       width: 200px;
       height: 67.24138px; } }
   @media (max-width: 540px) {
     .b {
-      background-position: 7.70864% 0;
-      background-size: 4159.48276% 100%; } }
+      background-position: 7.70864% 10.34483%;
+      background-size: 4159.48276% 3371.79487%; } }
   .b:hover {
     background-image: url(imgDest/popbtns.png);
     width: 116px;
     height: 39px;
-    background-position: -484px -0px; }
+    background-position: -484px -176px; }
     @media (max-width: 540px) {
       .b:hover {
         width: 200px;
         height: 67.24138px; } }
     @media (max-width: 540px) {
       .b:hover {
-        background-position: 10.27819% 0;
-        background-size: 4159.48276% 100%; } }
+        background-position: 10.27819% 13.7931%;
+        background-size: 4159.48276% 3371.79487%; } }
 
 .c {
   background-image: url(imgDest/popbtns.png);
   width: 196px;
   height: 39px;
-  background-position: -4227px -0px; }
+  background-position: -4227px -1188px; }
   @media (max-width: 540px) {
     .c {
       width: 10rem;
       height: 1.9898rem; } }
   @media (max-width: 540px) {
     .c {
-      background-position: 91.31562% 0;
-      background-size: 2461.73469% 100%; } }
+      background-position: 91.31562% 93.10345%;
+      background-size: 2461.73469% 3371.79487%; } }
   .c:hover {
     background-image: url(imgDest/popbtns.png);
     width: 196px;
     height: 39px;
-    background-position: -4026px -0px; }
+    background-position: -4026px -1144px; }
     @media (max-width: 540px) {
       .c:hover {
         width: 10rem;
         height: 1.9898rem; } }
     @media (max-width: 540px) {
       .c:hover {
-        background-position: 86.97343% 0;
-        background-size: 2461.73469% 100%; } }
+        background-position: 86.97343% 89.65517%;
+        background-size: 2461.73469% 3371.79487%; } }
