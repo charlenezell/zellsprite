@@ -1,21 +1,10 @@
 {{#block "sprites"}}
 {{#each sprites}}
-@mixin {{{strings.name}}}($mw:null,$mh:null) {
+
+@mixin {{{strings.name}}}() {
   background-image: url({{{escaped_image}}});
   width: {{px.width}};
   height: {{px.height}};
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*({{height}}/{{width}});;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*({{width}}/{{height}});
-      height:$mh;
-    }
-  }
   @include bgp({{width}},{{height}},{{x}},{{y}},{{total_width}},{{total_height}});
 }
 

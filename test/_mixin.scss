@@ -1,0 +1,3 @@
+@mixin bgp($w,$h,$x,$y,$tw,$th){
+    content:"temp bgp =>#{$w} #{$h} #{$x} #{$y} #{$tw} #{$th}";
+}

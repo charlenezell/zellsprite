@@ -1,5 +1,5 @@
 const sp = require("gulp.spritesmith");
-const ld = require("lodash");
+// const ld = require("lodash");
 const es = require("event-stream");
 const glob = require("glob");
 const imagemin = require("gulp-imagemin");
@@ -7,7 +7,7 @@ const rename = require('gulp-rename');
 const path = require("path");
 const chalk = require('chalk');
 const buffer = require('vinyl-buffer');
-const imageminPngquant=require('imagemin-pngquant');
+const imageminPngquant = require('imagemin-pngquant');
 const modulepath = __dirname;
 
 function getRealName(w) {
@@ -26,7 +26,7 @@ function getParamList(_a) {
 
 function isInNameOrder(pathToCal) {
     var param = getParamList(path.basename(pathToCal));
-    return ld.includes(param, "sbn");
+    return param.includes("sbn");
 }
 
 function chooseAlgorithm(pathToCal) {
@@ -44,7 +44,7 @@ function chooseAlgorithm(pathToCal) {
     var alg = "binary-tree",
         hit = false;
     g.forEach(function (v) {
-        if (ld.includes(param, v.name) && !hit) {
+        if (param.includes( v.name) && !hit) {
             hit = true, alg = v.alg;
         }
     });
@@ -58,7 +58,7 @@ const defaultOption = {
 };
 
 function main(gulp, options = {}) {
-    var config = ld.assign({}, defaultOption, options);
+    var config = {...defaultOption, ...options};
     var configInfo = Object.keys(config).map((k) => {
         return `using ${k}=${config[k]}`;
     }).join("\n");
@@ -67,7 +67,7 @@ function main(gulp, options = {}) {
         dest,
         src,
         taskName,
-        destBaseOn="",
+        destBaseOn = "",
         templateFile
     } = config;
     gulp.task(taskName, function () {
@@ -77,17 +77,17 @@ function main(gulp, options = {}) {
         let cssBundles = [];
         let _map = glob.sync(spriteGlob).map((a) => {
             let imgName = getRealName(a),
-                imgName2 = ld.includes(getParamList(a), "jpeg") ? imgName.replace(path.extname(imgName), ".jpeg") : imgName,
+                imgName2 = getParamList(a).includes("jpeg") ? imgName.replace(path.extname(imgName), ".jpeg") : imgName,
                 cssName = path.basename(a) + ".scss",
                 allImgGlob = path.join(a, "**/*.{jpg,png}");
-            imgName2 = ld.includes(getParamList(a), "jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
+            imgName2 = getParamList(a).includes( "jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
             var spMixStream = gulp.src(allImgGlob, {
                 read: false
             }).pipe(sp({
                 imgName: imgName2,
                 cssName: cssName,
                 engine: "gmsmith",
-                imgPath: path.posix.join(dest.replace(destBaseOn,""), imgName2),
+                imgPath: path.posix.join(dest.replace(destBaseOn, ""), imgName2),
                 algorithm: chooseAlgorithm(a),
                 algorithmOpts: {
                     sort: !isInNameOrder(a)
@@ -108,12 +108,12 @@ function main(gulp, options = {}) {
             };
 
             cssBundles.push(spMixStream.css);
-
-            var needP8Renderer = ld.includes(getParamList(a), "p8");
-            var hasOptimised = ld.includes(getParamList(a), "jpeg") || ld.includes(getParamList(a), "jpg");
+            let b=getParamList(a);
+            var needP8Renderer = b.includes( "p8");
+            var hasOptimised = b.includes( "jpeg") || b.includes( "jpg");
             if (needP8Renderer) {
                 return spMixStream.img
-                .pipe(buffer()).pipe(imagemin([imageminPngquant()])).pipe(gulp.dest(_dest));
+                    .pipe(buffer()).pipe(imagemin([imageminPngquant()])).pipe(gulp.dest(_dest));
             } else if (hasOptimised) {
                 return spMixStream.img.pipe(gulp.dest(_dest));
             } else {

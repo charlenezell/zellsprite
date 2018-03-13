@@ -10,21 +10,9 @@
             "name": "Gulp task",
             "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
             "args": [
-                "build"
+                "--gulpfile",
+                "${workspaceRoot}/test/gulpfile.js"
             ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceRoot}\\main.js"
-        },
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Attach to Process",
-            "address": "localhost",
-            "port": 5858
         }
     ]
 }

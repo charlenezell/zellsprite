@@ -5,7 +5,8 @@ console.log(__dirname);
 gulp.task("build",() => {
     return gulp.src(path.join(__dirname,'/**/*.es6'))
       .pipe(babel({
-        presets: ['es2015']
+        presets: ['es2015'],
+        plugins:['transform-object-rest-spread']
       }))
       .pipe(gulp.dest(__dirname));
   });

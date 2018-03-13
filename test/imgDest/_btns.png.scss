@@ -1,19 +1,8 @@
-@mixin btns_back-h($mw:null,$mh:null) {
+
+@mixin btns_back-h() {
   background-image: url(imgDest/btns.png);
   width: 203px;
   height: 168px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(168/203);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(203/168);
-      height:$mh;
-    }
-  }
   @include bgp(203,168,0,743,216,4759);
 }
 
@@ -32,22 +21,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_back($mw:null,$mh:null) {
+
+@mixin btns_back() {
   background-image: url(imgDest/btns.png);
   width: 203px;
   height: 168px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(168/203);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(203/168);
-      height:$mh;
-    }
-  }
   @include bgp(203,168,0,916,216,4759);
 }
 
@@ -66,22 +44,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_chou-d($mw:null,$mh:null) {
+
+@mixin btns_chou-d() {
   background-image: url(imgDest/btns.png);
   width: 161px;
   height: 46px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(46/161);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(161/46);
-      height:$mh;
-    }
-  }
   @include bgp(161,46,0,427,216,4759);
 }
 
@@ -100,22 +67,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_chou-h($mw:null,$mh:null) {
+
+@mixin btns_chou-h() {
   background-image: url(imgDest/btns.png);
   width: 161px;
   height: 46px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(46/161);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(161/46);
-      height:$mh;
-    }
-  }
   @include bgp(161,46,0,529,216,4759);
 }
 
@@ -134,22 +90,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_chou($mw:null,$mh:null) {
+
+@mixin btns_chou() {
   background-image: url(imgDest/btns.png);
   width: 161px;
   height: 46px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(46/161);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(161/46);
-      height:$mh;
-    }
-  }
   @include bgp(161,46,0,376,216,4759);
 }
 
@@ -168,22 +113,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_other-h($mw:null,$mh:null) {
+
+@mixin btns_other-h() {
   background-image: url(imgDest/btns.png);
   width: 212px;
   height: 45px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(45/212);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(212/45);
-      height:$mh;
-    }
-  }
   @include bgp(212,45,0,226,216,4759);
 }
 
@@ -202,22 +136,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_other($mw:null,$mh:null) {
+
+@mixin btns_other() {
   background-image: url(imgDest/btns.png);
   width: 212px;
   height: 45px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(45/212);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(212/45);
-      height:$mh;
-    }
-  }
   @include bgp(212,45,0,326,216,4759);
 }
 
@@ -236,22 +159,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_part-h($mw:null,$mh:null) {
+
+@mixin btns_part-h() {
   background-image: url(imgDest/btns.png);
   width: 214px;
   height: 46px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(46/214);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(214/46);
-      height:$mh;
-    }
-  }
   @include bgp(214,46,0,478,216,4759);
 }
 
@@ -270,22 +182,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_part($mw:null,$mh:null) {
+
+@mixin btns_part() {
   background-image: url(imgDest/btns.png);
   width: 214px;
   height: 46px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(46/214);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(214/46);
-      height:$mh;
-    }
-  }
   @include bgp(214,46,0,580,216,4759);
 }
 
@@ -304,22 +205,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r1-d($mw:null,$mh:null) {
+
+@mixin btns_r1-d() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,4274,216,4759);
 }
 
@@ -338,22 +228,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r1-h($mw:null,$mh:null) {
+
+@mixin btns_r1-h() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,4029,216,4759);
 }
 
@@ -372,22 +251,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r1($mw:null,$mh:null) {
+
+@mixin btns_r1() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,3784,216,4759);
 }
 
@@ -406,22 +274,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r2-d($mw:null,$mh:null) {
+
+@mixin btns_r2-d() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,3539,216,4759);
 }
 
@@ -440,22 +297,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r2-h($mw:null,$mh:null) {
+
+@mixin btns_r2-h() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,3294,216,4759);
 }
 
@@ -474,22 +320,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r2($mw:null,$mh:null) {
+
+@mixin btns_r2() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,3049,216,4759);
 }
 
@@ -508,22 +343,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r3-d($mw:null,$mh:null) {
+
+@mixin btns_r3-d() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,1089,216,4759);
 }
 
@@ -542,22 +366,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r3-h($mw:null,$mh:null) {
+
+@mixin btns_r3-h() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,4519,216,4759);
 }
 
@@ -576,22 +389,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r3($mw:null,$mh:null) {
+
+@mixin btns_r3() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,1334,216,4759);
 }
 
@@ -610,22 +412,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r4-d($mw:null,$mh:null) {
+
+@mixin btns_r4-d() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,2804,216,4759);
 }
 
@@ -644,22 +435,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r4-h($mw:null,$mh:null) {
+
+@mixin btns_r4-h() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,1579,216,4759);
 }
 
@@ -678,22 +458,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r4($mw:null,$mh:null) {
+
+@mixin btns_r4() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,1824,216,4759);
 }
 
@@ -712,22 +481,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r5-d($mw:null,$mh:null) {
+
+@mixin btns_r5-d() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,2069,216,4759);
 }
 
@@ -746,22 +504,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r5-h($mw:null,$mh:null) {
+
+@mixin btns_r5-h() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,2314,216,4759);
 }
 
@@ -780,22 +527,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_r5($mw:null,$mh:null) {
+
+@mixin btns_r5() {
   background-image: url(imgDest/btns.png);
   width: 194px;
   height: 240px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(240/194);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(194/240);
-      height:$mh;
-    }
-  }
   @include bgp(194,240,0,2559,216,4759);
 }
 
@@ -814,22 +550,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_remind-h($mw:null,$mh:null) {
+
+@mixin btns_remind-h() {
   background-image: url(imgDest/btns.png);
   width: 149px;
   height: 40px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(40/149);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(149/40);
-      height:$mh;
-    }
-  }
   @include bgp(149,40,0,131,216,4759);
 }
 
@@ -848,22 +573,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_remind($mw:null,$mh:null) {
+
+@mixin btns_remind() {
   background-image: url(imgDest/btns.png);
   width: 149px;
   height: 40px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(40/149);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(149/40);
-      height:$mh;
-    }
-  }
   @include bgp(149,40,0,86,216,4759);
 }
 
@@ -882,22 +596,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_share-h($mw:null,$mh:null) {
+
+@mixin btns_share-h() {
   background-image: url(imgDest/btns.png);
   width: 216px;
   height: 51px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(51/216);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(216/51);
-      height:$mh;
-    }
-  }
   @include bgp(216,51,0,687,216,4759);
 }
 
@@ -916,22 +619,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_share($mw:null,$mh:null) {
+
+@mixin btns_share() {
   background-image: url(imgDest/btns.png);
   width: 216px;
   height: 51px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(51/216);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(216/51);
-      height:$mh;
-    }
-  }
   @include bgp(216,51,0,631,216,4759);
 }
 
@@ -950,22 +642,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_submit-h($mw:null,$mh:null) {
+
+@mixin btns_submit-h() {
   background-image: url(imgDest/btns.png);
   width: 212px;
   height: 45px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(45/212);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(212/45);
-      height:$mh;
-    }
-  }
   @include bgp(212,45,0,276,216,4759);
 }
 
@@ -984,22 +665,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_submit($mw:null,$mh:null) {
+
+@mixin btns_submit() {
   background-image: url(imgDest/btns.png);
   width: 212px;
   height: 45px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(45/212);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(212/45);
-      height:$mh;
-    }
-  }
   @include bgp(212,45,0,176,216,4759);
 }
 
@@ -1018,22 +688,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_sure-h($mw:null,$mh:null) {
+
+@mixin btns_sure-h() {
   background-image: url(imgDest/btns.png);
   width: 80px;
   height: 38px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(38/80);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(80/38);
-      height:$mh;
-    }
-  }
   @include bgp(80,38,0,43,216,4759);
 }
 
@@ -1052,22 +711,11 @@
   @return (px_height:$ih,px_width:$iw,px_x:$ix,px_y:$iy,img:$img,totalHeight:$totalHeight,totalWidth:$totalWidth,x:$x,y:$y,width:$width,height:$height);
 }
 
-@mixin btns_sure($mw:null,$mh:null) {
+
+@mixin btns_sure() {
   background-image: url(imgDest/btns.png);
   width: 80px;
   height: 38px;
-  @if $mw != null {
-    @include when(mobile){
-      width: $mw;
-      height: $mw*(38/80);;
-    }
-  }
-  @if $mh != null {
-    @include when(mobile){
-      width: $mh*(80/38);
-      height:$mh;
-    }
-  }
   @include bgp(80,38,0,0,216,4759);
 }
 

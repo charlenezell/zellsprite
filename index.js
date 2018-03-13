@@ -3,8 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var sp = require("gulp.spritesmith");
-var ld = require("lodash");
+// const ld = require("lodash");
 var es = require("event-stream");
 var glob = require("glob");
 var imagemin = require("gulp-imagemin");
@@ -31,7 +34,7 @@ function getParamList(_a) {
 
 function isInNameOrder(pathToCal) {
     var param = getParamList(path.basename(pathToCal));
-    return ld.includes(param, "sbn");
+    return param.includes("sbn");
 }
 
 function chooseAlgorithm(pathToCal) {
@@ -49,7 +52,7 @@ function chooseAlgorithm(pathToCal) {
     var alg = "binary-tree",
         hit = false;
     g.forEach(function (v) {
-        if (ld.includes(param, v.name) && !hit) {
+        if (param.includes(v.name) && !hit) {
             hit = true, alg = v.alg;
         }
     });
@@ -63,19 +66,19 @@ var defaultOption = {
 };
 
 function main(gulp) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-    var config = ld.assign({}, defaultOption, options);
+    var config = _extends({}, defaultOption, options);
     var configInfo = Object.keys(config).map(function (k) {
         return "using " + k + "=" + config[k];
     }).join("\n");
     console.log(chalk.bgGreen.red(configInfo));
-    var dest = config.dest;
-    var src = config.src;
-    var taskName = config.taskName;
-    var _config$destBaseOn = config.destBaseOn;
-    var destBaseOn = _config$destBaseOn === undefined ? "" : _config$destBaseOn;
-    var templateFile = config.templateFile;
+    var dest = config.dest,
+        src = config.src,
+        taskName = config.taskName,
+        _config$destBaseOn = config.destBaseOn,
+        destBaseOn = _config$destBaseOn === undefined ? "" : _config$destBaseOn,
+        templateFile = config.templateFile;
 
     gulp.task(taskName, function () {
         var jobs = [];
@@ -84,10 +87,10 @@ function main(gulp) {
         var cssBundles = [];
         var _map = glob.sync(spriteGlob).map(function (a) {
             var imgName = getRealName(a),
-                imgName2 = ld.includes(getParamList(a), "jpeg") ? imgName.replace(path.extname(imgName), ".jpeg") : imgName,
+                imgName2 = getParamList(a).includes("jpeg") ? imgName.replace(path.extname(imgName), ".jpeg") : imgName,
                 cssName = path.basename(a) + ".scss",
                 allImgGlob = path.join(a, "**/*.{jpg,png}");
-            imgName2 = ld.includes(getParamList(a), "jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
+            imgName2 = getParamList(a).includes("jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
             var spMixStream = gulp.src(allImgGlob, {
                 read: false
             }).pipe(sp({
@@ -115,13 +118,11 @@ function main(gulp) {
             };
 
             cssBundles.push(spMixStream.css);
-
-            var needP8Renderer = ld.includes(getParamList(a), "p8");
-            var hasOptimised = ld.includes(getParamList(a), "jpeg") || ld.includes(getParamList(a), "jpg");
+            var b = getParamList(a);
+            var needP8Renderer = b.includes("p8");
+            var hasOptimised = b.includes("jpeg") || b.includes("jpg");
             if (needP8Renderer) {
-                return spMixStream.img.pipe(buffer()).pipe(imagemin({
-                    use:[imageminPngquant()]
-                })).pipe(gulp.dest(_dest));
+                return spMixStream.img.pipe(buffer()).pipe(imagemin([imageminPngquant()])).pipe(gulp.dest(_dest));
             } else if (hasOptimised) {
                 return spMixStream.img.pipe(gulp.dest(_dest));
             } else {
