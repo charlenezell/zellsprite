@@ -68,7 +68,8 @@ function main(gulp, options = {}) {
         src,
         taskName,
         destBaseOn = "",
-        templateFile
+        templateFile,
+        fileExt=".scss"
     } = config;
     gulp.task(taskName, function () {
         let jobs = [];
@@ -78,7 +79,7 @@ function main(gulp, options = {}) {
         let _map = glob.sync(spriteGlob).map((a) => {
             let imgName = getRealName(a),
                 imgName2 = getParamList(a).includes("jpeg") ? imgName.replace(path.extname(imgName), ".jpeg") : imgName,
-                cssName = path.basename(a) + ".scss",
+                cssName = path.basename(a) + fileExt,
                 allImgGlob = path.join(a, "**/*.{jpg,png}");
             imgName2 = getParamList(a).includes( "jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
             var spMixStream = gulp.src(allImgGlob, {

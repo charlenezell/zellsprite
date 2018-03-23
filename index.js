@@ -78,7 +78,9 @@ function main(gulp) {
         taskName = config.taskName,
         _config$destBaseOn = config.destBaseOn,
         destBaseOn = _config$destBaseOn === undefined ? "" : _config$destBaseOn,
-        templateFile = config.templateFile;
+        templateFile = config.templateFile,
+        _config$fileExt = config.fileExt,
+        fileExt = _config$fileExt === undefined ? ".scss" : _config$fileExt;
 
     gulp.task(taskName, function () {
         var jobs = [];
@@ -88,7 +90,7 @@ function main(gulp) {
         var _map = glob.sync(spriteGlob).map(function (a) {
             var imgName = getRealName(a),
                 imgName2 = getParamList(a).includes("jpeg") ? imgName.replace(path.extname(imgName), ".jpeg") : imgName,
-                cssName = path.basename(a) + ".scss",
+                cssName = path.basename(a) + fileExt,
                 allImgGlob = path.join(a, "**/*.{jpg,png}");
             imgName2 = getParamList(a).includes("jpg") ? imgName.replace(path.extname(imgName), ".jpg") : imgName;
             var spMixStream = gulp.src(allImgGlob, {
